@@ -1,22 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import ContactButton from "./ContactButton";
+import heroImage from "@/public/images/hero.jpeg";
 
 export default function Hero() {
   return (
     <section id="home" className="relative">
-      <div
-        className="hero min-h-[calc(80vh-4rem)]"
-        style={{
-          backgroundImage:
-            "url(/images/hero.jpeg)",
-          backgroundAttachment: "fixed",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="fixed inset-0 w-full h-full -z-10">
+        <Image
+          src={heroImage}
+          alt="Professional Pool Maintenance"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </div>
+
+      <div className="hero min-h-[calc(80vh-4rem)] relative bg-transparent">
         <div className="hero-overlay bg-primary/60" />
+        
         <div
           className="absolute inset-0 z-[1] overflow-hidden pointer-events-none"
           aria-hidden="true"
@@ -30,6 +34,7 @@ export default function Hero() {
             }}
           />
         </div>
+        
         <div className="hero-content p-8 xl:w-6xl text-primary-content relative z-10">
           <motion.div
             className="max-w-2xl mr-auto"
