@@ -4,33 +4,38 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+import poolMaintenanceImg from "@/public/images/services/pool-maintenance.jpeg";
+import spalMaintenanceImg from "@/public/images/services/spa-maintenance.jpeg";
+import waterDiagnosticsImg from "@/public/images/services/water-diagnostics.jpeg";
+import equipmentRepairsImg from "@/public/images/services/equipment-repairs.jpeg";
+
 const services = [
   {
     title: "Pool Maintenance",
     description:
       "Weekly cleaning, chemical balancing, and filtration checks to keep your pool sparkling year-round.",
-    image: "/images/services/pool-maintenance.jpeg",
+    image: poolMaintenanceImg,
     alt: "Clean swimming pool with clear blue water",
   },
   {
     title: "Spa Maintenance",
     description:
       "Temperature management, water chemistry, and deep cleaning for your hot tub or spa.",
-    image: "/images/services/spa-maintenance.jpeg",
+    image: spalMaintenanceImg,
     alt: "Luxury spa with warm water",
   },
   {
     title: "Water Diagnostics",
     description:
       "Comprehensive water testing and chemical analysis to ensure safe, balanced water quality.",
-    image: "/images/services/water-diagnostics.jpeg",
+    image: waterDiagnosticsImg,
     alt: "Pool water being tested with diagnostic kit",
   },
   {
     title: "Equipment Repairs",
     description:
       "Pumps, filters, heaters, and automation systems — fast diagnostics and reliable repairs.",
-    image: "/images/services/equipment-repairs.jpeg",
+    image: equipmentRepairsImg,
     alt: "Pool equipment and pump system",
   },
 ];

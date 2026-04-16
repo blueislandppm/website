@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { StaticImageData } from "next/image";
 
-export default function GalleryGrid({ images }: { images: string[] }) {
+
+export default function GalleryGrid({ images }: { images: StaticImageData[] }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<StaticImageData | null>(null);
 
   if (images.length === 0) {
     return (
@@ -21,7 +23,7 @@ export default function GalleryGrid({ images }: { images: string[] }) {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {images.map((src, i) => (
           <button
-            key={src}
+            key={`gallery-image-${i}`}
             type="button"
             onClick={() => {
               setImageSrc(src);
@@ -49,7 +51,7 @@ export default function GalleryGrid({ images }: { images: string[] }) {
           onClick={(e) => e.stopPropagation()}
         >
           {imageSrc && (
-            <div className="relative aspect-[4/3] w-full">
+            <div key={imageSrc.src} className="relative aspect-[4/3] w-full">
               <Image
                 src={imageSrc}
                 alt="Gallery image enlarged"

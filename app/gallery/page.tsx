@@ -1,12 +1,31 @@
 import fs from "fs";
 import path from "path";
 import GalleryGrid from "./gallery-grid";
+import { StaticImageData } from "next/image";
 
 export const metadata = {
   title: "Gallery | Blue Island",
   description:
     "Browse our pool and spa maintenance gallery. See our work in Southwest Florida.",
 };
+
+interface WebpackRequireContext {
+  keys(): string[];
+  (id: string): { default: StaticImageData };
+}
+function importAll(r: WebpackRequireContext): StaticImageData[] {
+  const images: StaticImageData[] = [];
+  r.keys().forEach((item: string) => { 
+    const module = r(item);
+    images.push(module.default);
+  });
+  
+  return images;
+}
+const galleryImages = importAll(
+  require.context('../../public/gallery', false, /\.(png|jpe?g|webp|svg)$/)
+);
+
 
 const IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg"];
 
@@ -35,7 +54,7 @@ export default function GalleryPage() {
         <p className="mb-10 text-center text-lg text-base-content/70">
           A showcase of our pool and spa maintenance projects
         </p>
-        <GalleryGrid images={images} />
+        <GalleryGrid images={galleryImages} />
       </div>
     </div>
   );
