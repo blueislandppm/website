@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ContactButton from "./ContactButton";
 import Image from "next/image";
+import aboutImg from "@/public/images/about.jpeg"
 
 export default function About() {
   return (
@@ -41,7 +41,7 @@ export default function About() {
         >
           <figure className="card shadow-lg overflow-hidden">
             <Image
-              src="/images/about.jpeg"
+              src={aboutImg}
               alt="Pool in Estero"
               width={1200}
               height={870}

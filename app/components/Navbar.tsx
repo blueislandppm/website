@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactButton from "./ContactButton";
+import logoImg from "@/public/images/logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -50,7 +51,7 @@ export default function Navbar() {
         </div>
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary">
           <Image
-            src="/images/logo.png"
+            src={logoImg}
             alt="Blue Island logo"
             width={28}
             height={28}
