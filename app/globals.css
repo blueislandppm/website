@@ -1,26 +1,60 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@plugin "daisyui/theme" {
+  name: "blue-island";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Primary — vibrant water blue */
+  --color-primary: #0ea5e9;
+  --color-primary-content: #ffffff;
+
+  /* Secondary — warm sun yellow */
+  --color-secondary: #facc15;
+  --color-secondary-content: #1e293b;
+
+  /* Accent — deep teal/aqua */
+  --color-accent: #0891b2;
+  --color-accent-content: #ffffff;
+
+  /* Neutral — dark navy */
+  --color-neutral: #1e293b;
+  --color-neutral-content: #f8fafc;
+
+  /* Base — clean light palette */
+  --color-base-100: #ffffff;
+  --color-base-200: #f0f9ff;
+  --color-base-300: #e0f2fe;
+  --color-base-content: #0f172a;
+
+  /* Info */
+  --color-info: #38bdf8;
+  --color-info-content: #0c4a6e;
+
+  /* Success */
+  --color-success: #22c55e;
+  --color-success-content: #052e16;
+
+  /* Warning */
+  --color-warning: #f59e0b;
+  --color-warning-content: #451a03;
+
+  /* Error */
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+
+  /* Radius */
+  --radius-btn: 0.5rem;
+  --radius-box: 0.75rem;
+
+  /* Animation */
+  --animation-btn: 0.15s;
+  --animation-input: 0.15s;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
